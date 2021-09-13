@@ -1,20 +1,29 @@
-import React from "react";
-import Hornbeasts from './Hornbeasts'
 
-class Main extends React.Component{
-
-render(){
+import React from 'react';
+import Hornedbeasts from './Hornbeasts'
+import beastArr from './hornedbeasts.json';
 
 
-    return(
+class Main extends React.Component {
 
-    
-        <Hornbeasts/>
+    render() {
 
-    )
-}
+        return (
+            <div>
+                {beastArr.map(item => {
 
 
+                    return (<Hornedbeasts title={item.title} image_url={item.image_url}
+                        description={item.description} keyword={item.description} horns={item.horns}
+
+
+                    />)
+
+                })}
+            </div>
+
+        )
+    }
 
 }
 
