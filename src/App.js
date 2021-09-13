@@ -1,27 +1,22 @@
-import React from "react";
+import React from 'react';
 import Header from './component/Header'
 import Footer from './component/Footer'
 import Main from './component/Main'
 
-class App extends React.Component{
+class App extends React.Component {
 
-  render(){
+  render() {
 
-    return(
+    return (
       <>
-  <div>
-<Header/>
-</div>
 
-<div>
+        <Header />
 
-  <Main/>
-</div>
-<div>
-  <Footer/>
-  </div>
+        <Main />
 
-</>
+        <Footer />
+
+      </>
     )
   }
 }
