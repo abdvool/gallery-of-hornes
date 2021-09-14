@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import {  Modal } from 'react-bootstrap/';
 
 import './HornedBeast.css'
 
@@ -25,6 +26,8 @@ class Hornbeasts extends React.Component {
             numberofPets: this.state.numberofPets + 1
 
         })
+
+        this.props.descreaselikes()
     }
 
 
@@ -59,14 +62,28 @@ class Hornbeasts extends React.Component {
                                 {this.props.description}
                             </Card.Text>
                             <Card.Text>
-                                {this.state.numberofPets}
+                            ❤  {this.state.numberofPets}
+                                 
                             </Card.Text>
-                            <Button variant="primary" onClick={this.increasevote} >Vote </Button>
+                            <Button variant="primary" onClick={this.increasevote} >Like </Button>
                         </Card.Body>
                     </Card>
 
 
                 </div>
+
+                <Modal show={this.props.show} onHide={this.props.handleShow}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>{this.props.title}</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={this.props.handleShow}>
+                            Close
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+
             </>
 
         )
