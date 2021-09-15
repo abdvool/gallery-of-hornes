@@ -4,6 +4,7 @@ import Hornedbeasts from './Hornbeasts'
 import beastArr from './hornedbeasts.json';
 import Button from 'react-bootstrap/Button';
 import Hornbeasts from './Hornbeasts';
+import SelectedBeast from './SelectedBeast';
 
 
 class Main extends React.Component {
@@ -45,16 +46,14 @@ class Main extends React.Component {
 
 
     handleShow = (title) => {
-        let beastNameButton = beastArr.find(elemnt => {
+        let beastNameButton = beastArr.find(elemnt => 
 
-         if (elemnt.title === title){
-
-            return elemnt
-         }
+        elemnt.title === title
         
         
 
-    })
+    )
+    console.log('string')
    this.setState({
                 beastForm: beastNameButton,
                 showModal: true
@@ -80,19 +79,26 @@ render() {
 
                     descreaselikes={this.likesTaken}
 
+                  
+                    handleShow={this.handleShow}
+
 
                 />)
 
             })}
 
     
+    <SelectedBeast
+    
+    show={this.state.showModal}
+    handleClose={this.handleClose}
+    Data={this.state.beastForm}
+    
+    
+    />
 
-            <Hornbeasts
-                show={this.state.showModal}
-                handleClose={this.handleClose}
-                beastTitle={this.state.beastForm}
-                handleShow={this.handleShow}
-            />
+               
+          
 
         </div>
 

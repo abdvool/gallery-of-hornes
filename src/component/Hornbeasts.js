@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import {  Modal } from 'react-bootstrap/';
+import { Modal } from 'react-bootstrap/';
 
 import './HornedBeast.css'
 
@@ -15,9 +15,15 @@ class Hornbeasts extends React.Component {
 
         super(props);
         this.state = {
-            numberofPets: 0
+            numberofPets: 0,
+
+            showModal: false,
         }
     }
+
+
+
+
 
     increasevote = () => {
 
@@ -28,6 +34,9 @@ class Hornbeasts extends React.Component {
         })
 
         this.props.descreaselikes()
+        this.props.handleShow(this.props.title)
+        
+
     }
 
 
@@ -48,13 +57,17 @@ class Hornbeasts extends React.Component {
 
                     <p>{this.state.numberofPets}</p>
 
-                    <button onClick={this.increasevote} >Vote </button> */}
+              
+        <button onClick={this.increasevote} >Vote </button> */}
+
+
+
 
                 <div className='Hornbeast'>
 
 
                     <Card style={{ width: '18rem' }} >
-                        <Card.Img variant="top" src={this.props.image_url} alt={this.props.keyword} title={this.props.title} width={350} />
+                        <Card.Img onClick={this.increasevote} variant="top" src={this.props.image_url} alt={this.props.keyword} title={this.props.title} width={350} />
 
                         <Card.Body>
                             <Card.Title>{this.props.title}</Card.Title>
@@ -62,17 +75,16 @@ class Hornbeasts extends React.Component {
                                 {this.props.description}
                             </Card.Text>
                             <Card.Text>
-                            ❤  {this.state.numberofPets}
-                                 
+                                ❤  {this.state.numberofPets}
+
                             </Card.Text>
-                            <Button variant="primary" onClick={this.increasevote} >Like </Button>
                         </Card.Body>
                     </Card>
 
 
                 </div>
 
-                <Modal show={this.props.show} onHide={this.props.handleShow}>
+                {/* <Modal show={this.props.show} onHide={this.props.handleShow}>
                     <Modal.Header closeButton>
                         <Modal.Title>{this.props.title}</Modal.Title>
                     </Modal.Header>
@@ -82,7 +94,24 @@ class Hornbeasts extends React.Component {
                             Close
                         </Button>
                     </Modal.Footer>
-                </Modal>
+                </Modal> */}
+
+
+                {/* 
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Modal heading</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button>
+                        <Button variant="primary" onClick={handleClose}>
+                            Save Changes
+                        </Button>
+                    </Modal.Footer>
+                </Modal> */}
 
             </>
 
