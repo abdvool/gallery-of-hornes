@@ -7,7 +7,7 @@ import Hornbeasts from './Hornbeasts';
 import SelectedBeast from './SelectedBeast';
 import { Modal } from 'react-bootstrap/';
 import { Form } from 'react-bootstrap/';
-
+import SortingBeast from './SortingBeast';
 
 class Main extends React.Component {
 
@@ -21,10 +21,12 @@ class Main extends React.Component {
             numberOfLikes: 100,
 
             beastForm: {},
-            showModal: false
+            showModal: false,
+            hornNumber: 0,
+            sortedBeast:beastArr,
+
         }
     }
-
 
     likesTaken = () => {
 
@@ -72,10 +74,11 @@ class Main extends React.Component {
             <div>
 
 
-            
 
-                <Form.Select aria-label="Default select example">
+                
+                <Form.Select onChange={this.filter} aria-label="Default select example">
                     <option>Open this select menu</option>
+                    <option value="">All</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="100">One handred</option>
@@ -87,7 +90,7 @@ class Main extends React.Component {
                 <p style={{ marginLeft: '5%', fontSize: '200%' }}>You have 100 likes ❤ give it to your favorite  hornedbeast  {this.state.numberOfLikes}</p>
 
 
-                {beastArr.map(item => {
+                {this.state.sortedBeast.map(item => {
 
 
                     return (<Hornedbeasts title={item.title} image_url={item.image_url}
@@ -101,6 +104,7 @@ class Main extends React.Component {
 
                     />)
 
+
                 })}
 
 
@@ -113,6 +117,15 @@ class Main extends React.Component {
 
                 />
 
+
+                <SortingBeast
+
+
+
+
+
+
+                />
 
 
 

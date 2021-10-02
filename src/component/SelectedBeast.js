@@ -19,7 +19,7 @@ class SelectedBeast extends React.Component {
                         <Modal.Header closeButton>
                             <Modal.Title>{this.props.Data.title}</Modal.Title>
                         </Modal.Header>
-                        <Modal.Body><img className="img-fluid" src={this.props.Data.image_url}/>
+                        <Modal.Body><img className="img-fluid" src={this.props.Data.image_url} />
                         
                         </Modal.Body>
                         <Modal.Footer>
@@ -39,4 +39,3 @@ class SelectedBeast extends React.Component {
 }
 
 export default SelectedBeast;
-

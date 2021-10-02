@@ -17,7 +17,7 @@ class Hornbeasts extends React.Component {
         this.state = {
             numberofPets: 0,
 
-            showModal: false,
+            showModal: false
         }
     }
 
